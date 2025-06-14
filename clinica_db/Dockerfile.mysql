@@ -1,0 +1,8 @@
+FROM mysql:5.7
+
+ENV MYSQL_DATABASE=clinica_db
+ENV MYSQL_ROOT_PASSWORD=root
+
+# Copia el archivo SQL al contenedor
+COPY clinica_db.sql /docker-entrypoint-initdb.d/
+
