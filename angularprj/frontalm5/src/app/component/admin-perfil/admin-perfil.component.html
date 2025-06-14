@@ -1,0 +1,49 @@
+<div class="container mt-5">
+  <!-- Barra superior de navegación -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <a routerLink="/registro-doctor" class="btn btn-outline-primary">Creación de Doctores</a>
+    </div>
+    <div>
+      <button class="btn btn-danger" (click)="cerrarSesion()">Cerrar sesión</button>
+    </div>
+  </div>
+
+  <!-- Tarjeta con datos del perfil -->
+  <div class="card mb-4">
+    <div class="card-header bg-primary text-white">
+      <h3>Bienvenido Administrador</h3>
+    </div>
+  </div>
+
+  <!-- Lista de Doctores -->
+  <div class="card">
+    <div class="card-header bg-info text-white">
+      <h4>Doctores Registrados</h4>
+    </div>
+    <div class="card-body">
+      <div *ngIf="doctores.length === 0" class="alert alert-info">
+        No hay doctores registrados.
+      </div>
+
+      <table *ngIf="doctores.length > 0" class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Especialidad</th>
+            <th>Email</th>
+            <th>Horario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let doctor of doctores">
+            <td>{{ doctor.name }}</td>
+            <td>{{ doctor.specialty }}</td>
+            <td>{{ doctor.email }}</td>
+            <td>{{ doctor.schedule }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<!-- src/app/components/register-doctor/register-doctor.component.html -->
+<div class="container mt-4">
+  <h2>Registro de Doctor</h2>
+  <form (ngSubmit)="register()" #form="ngForm">
+    <div class="form-group mb-3">
+      <label>Nombre</label>
+      <input type="text" class="form-control" [(ngModel)]="doctor.name" name="name" required>
+    </div>
+    <div class="form-group mb-3">
+      <label>Email</label>
+      <input type="email" class="form-control" [(ngModel)]="doctor.email" name="email" required>
+    </div>
+    <div class="form-group mb-3">
+      <label>Contraseña</label>
+      <input type="password" class="form-control" [(ngModel)]="doctor.password" name="password" required>
+    </div>
+    <div class="form-group mb-3">
+      <label>Especialidad</label>
+      <input type="text" class="form-control" [(ngModel)]="doctor.specialty" name="specialty" required>
+    </div>
+    <div class="form-group mb-3">
+      <label>Horario</label>
+      <input type="text" class="form-control" [(ngModel)]="doctor.schedule" name="schedule" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar</button>
+    <a routerLink="/adminPerfil" class="btn btn-danger">Regresar</a>
+    <p class="mt-2 text-danger">{{ mensaje }}</p>
+  </form>
+</div>
+

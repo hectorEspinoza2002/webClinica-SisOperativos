@@ -1,0 +1,62 @@
+<div class="card-header bg-primary text-white">
+      <h3>Agendar Cita</h3>
+    </div>
+
+<form (ngSubmit)="onSubmit()">
+  <!-- Campo de fecha -->
+  <div class="mb-3">
+    <label for="date" class="form-label">Fecha:</label>
+    <input
+      type="date"
+      class="form-control"
+      id="date"
+      [(ngModel)]="appointment.date"
+      name="date"
+      required
+    />
+  </div>
+
+  <!-- Campo de hora -->
+  <div class="mb-3">
+    <label for="hora" class="form-label">Hora:</label>
+    <input
+      type="time"
+      class="form-control"
+      id="hora"
+      [(ngModel)]="appointment.hora"
+      name="hora"
+      required
+    />
+  </div>
+
+  <!-- Selección de doctor -->
+  <div class="mb-3">
+    <label for="doctor" class="form-label">Doctor:</label>
+    <select
+      id="doctor"
+      class="form-select"
+      required
+      [(ngModel)]="selectedDoctorId"
+      name="doctor"
+    >
+      <option value="" disabled selected>Seleccione un doctor</option>
+      <option *ngFor="let doctor of doctors" [value]="doctor.id">
+        {{ doctor.name }} - {{ doctor.specialty }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Mensajes de error/éxito -->
+  <div *ngIf="mensaje" class="alert alert-info">
+    {{ mensaje }}
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <!-- Botón de enviar -->
+    <button type="submit" class="btn btn-primary">Agendar Cita</button>
+
+    <div>
+      <button class="btn btn-danger" (click)="cerrarSesion()">Regresar</button>
+    </div>
+  </div>
+</form>

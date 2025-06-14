@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <!-- Barra superior de navegación -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <a routerLink="/agenda-cita" class="btn btn-outline-primary me-2">Agendar Citas</a>
+      <a routerLink="/crear-recetas" class="btn btn-outline-primary">Crear Recetas</a>
+    </div>
+    <div>
+
+      <button class="btn btn-danger" (click)="cerrarSesion()">Cerrar sesión</button>
+    </div>
+  </div>
+
+  <!-- Tarjeta con datos del perfil -->
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h3>Perfil del Doctor</h3>
+    </div>
+    <div class="card-body">
+      <p><strong>Nombre:</strong> {{ doctor?.name }}</p>
+      <p><strong>Especialidad:</strong> {{ doctor?.specialty }}</p>
+      <p><strong>Email:</strong> {{ doctor?.email }}</p>
+      <p><strong>Cronograma:</strong> {{ doctor?.schedule }}</p>
+    </div>
+  </div>
+</div>
+

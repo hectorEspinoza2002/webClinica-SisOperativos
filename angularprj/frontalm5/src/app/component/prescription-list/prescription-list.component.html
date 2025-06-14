@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <h2>Mis Recetas Médicas</h2>
+
+  <button class="btn btn-primary mb-3" (click)="createNewPrescription()">
+    Nueva Receta (Ejemplo)
+  </button>
+
+  <div *ngIf="prescriptions.length === 0" class="alert alert-info">
+    No tienes recetas médicas registradas.
+  </div>
+
+  <div class="list-group">
+    <div *ngFor="let prescription of prescriptions" class="list-group-item">
+      <div class="d-flex justify-content-between">
+        <div>
+          <h5>Receta #{{prescription.id}}</h5>
+          <p>{{prescription.details}}</p>
+          <small class="text-muted">Fecha: {{prescription.fecha | date}}</small>
+        </div>
+        <div>
+          <button class="btn btn-sm btn-outline-danger">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

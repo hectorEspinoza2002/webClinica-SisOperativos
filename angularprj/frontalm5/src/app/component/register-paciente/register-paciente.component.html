@@ -1,0 +1,26 @@
+<!-- src/app/components/register-doctor/register-doctor.component.html -->
+<div class="container mt-4">
+  <h2>Registro de Paciente</h2>
+  <form (ngSubmit)="register()" #form="ngForm">
+    <div class="form-group mb-3">
+      <label>Nombre</label>
+      <input type="text" class="form-control" [(ngModel)]="paciente.nombre" name="name" required>
+    </div>
+    <div class="form-group mb-3">
+      <label>Email</label>
+      <input type="email" class="form-control" [(ngModel)]="paciente.email" name="email" required>
+    </div>
+    <div class="form-group mb-3">
+      <label>Telefono</label>
+      <input type="text" class="form-control" [(ngModel)]="paciente.phone" name="telefono" required>
+    </div>
+    <div class="form-group mb-3">
+      <label>Contraseña</label>
+      <input type="password" class="form-control" [(ngModel)]="paciente.password" name="password" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar</button>
+    <a routerLink="/login" class="btn btn-danger">Regresar</a>
+    <p class="mt-2 text-danger">{{ mensaje }}</p>
+  </form>
+</div>
+

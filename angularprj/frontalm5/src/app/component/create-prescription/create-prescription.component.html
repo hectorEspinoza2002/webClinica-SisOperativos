@@ -1,0 +1,75 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h3>Crear Nueva Receta Médica</h3>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()">
+        <!-- Selección de Paciente -->
+        <div class="mb-3">
+          <label for="patient" class="form-label">Paciente:</label>
+          <select
+            id="patient"
+            class="form-select"
+            [(ngModel)]="prescription.patientId"
+            name="patient"
+            required
+          >
+            <option value="" disabled selected>Seleccione un paciente</option>
+            <option *ngFor="let patient of patients" [value]="patient.id">
+              {{ patient.nombre }} - {{ patient.email }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Detalles de la Receta -->
+        <div class="mb-3">
+          <label for="details" class="form-label">Instrucciones Médicas:</label>
+          <textarea
+            class="form-control"
+            id="details"
+            rows="5"
+            [(ngModel)]="prescription.details"
+            name="details"
+            required
+          ></textarea>
+        </div>
+
+        <!-- Fecha de Emisión -->
+        <div class="mb-3">
+          <label for="femision" class="form-label">Fecha de Emisión:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="femision"
+            [(ngModel)]="prescription.fecha"
+            name="femision"
+            placeholder="Ej: 2023-12-15"
+            required
+          />
+          <small class="text-muted">Formato: YYYY-MM-DD</small>
+        </div>
+
+        <!-- Mensajes de éxito/error -->
+        <div *ngIf="successMessage" class="alert alert-success">
+          {{ successMessage }}
+        </div>
+        <div *ngIf="errorMessage" class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
+
+        <!-- Botones -->
+        <div class="d-flex justify-content-end">
+          <button
+            type="button"
+            class="btn btn-secondary me-2"
+            routerLink="/doctorPerfil"
+          >
+            Cancelar
+          </button>
+          <button type="submit" class="btn btn-primary">Crear Receta</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
